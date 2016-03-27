@@ -135,3 +135,5 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+GEOS_LIBRARY_PATH = '/app/.heroku/vendor/lib/libgeos_c.so'
