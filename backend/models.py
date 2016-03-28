@@ -45,7 +45,7 @@ class Sepulture(models.Model):
         lon = self.longitude
         if not lon:
             lon = '-'
-        return ("Section: %d (%s , %s)" % (self.section, lon, lat))
+        return ("Section: %d (%s , %s) (%s , %s)" % (self.section, lon, lat, self.long(), self.lati()))
         
     class Meta:
         managed = True
