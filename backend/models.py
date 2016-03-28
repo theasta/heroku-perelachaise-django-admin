@@ -19,20 +19,20 @@ class Sepulture(models.Model):
     section = models.SmallIntegerField()
     urn = models.CharField(max_length=8, blank=True)
     modified = models.DateTimeField(auto_now=True)
-    def latitude(self):
+    def lat(self):
         point = self.geog
         if not point:
             return '-'            
         return str(self.geog.y)
 
-    def longitude(self):
+    def lon(self):
         point = self.geog
         if not point:
             return '-'            
         return str(self.geog.x)
 
     def __unicode__(self):
-        return ("Section: %d (%s , %s)" % (self.section, self.longitude(), self.latitude()))
+        return ("Section: %d (%s , %s)" % (self.section, self.lon(), self.lat()))
         
     class Meta:
         managed = True
