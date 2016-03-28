@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.gis.admin import GeoModelAdmin
 
 from backend.models import Sepulture, Personality, Identity, Info, Country
 
@@ -32,8 +33,8 @@ class PersonalityAdmin(admin.ModelAdmin):
         IdentityInline,
         InfoInline,
     ]
-    
-class SepultureAdmin(admin.GeoModelAdmin):
+
+class SepultureAdmin(GeoModelAdmin):
     readonly_fields = ('id', 'modified', 'latitude', 'longitude')
     ordering = ('section', 'longitude', 'latitude')
     openlayers_url = 'https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js'
