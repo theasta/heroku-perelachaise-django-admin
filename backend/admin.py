@@ -34,7 +34,7 @@ class PersonalityAdmin(admin.ModelAdmin):
     ]
     
 class SepultureAdmin(admin.ModelAdmin):
-    readonly_fields = ('id', 'modified', 'latitude', 'longitude', 'geog')
+    readonly_fields = ('id', 'modified', 'latitude', 'longitude')
     ordering = ('section', 'longitude', 'latitude')
     inlines = [ PersonalityInline ]
 

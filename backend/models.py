@@ -17,7 +17,6 @@ class Sepulture(models.Model):
     id = models.AutoField(primary_key=True)
     longitude = models.FloatField(blank=True, null=True)
     latitude = models.FloatField(blank=True, null=True)
-    # Could not find the GEOS library (tried "geos_c", "GEOS"). Try setting GEOS_LIBRARY_PATH in your settings.
     geog = models.GeometryField(geography=True) 
     # geog = models.TextField(blank=True, null=True)  # This field type is a guess.
     section = models.SmallIntegerField()
