@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.contrib.gis.admin import OSMGeoAdmin
+from django.contrib.gis.admin import OSMGeoAdmin, GeoModelAdmin
 
 from backend.models import Sepulture, Personality, Identity, Info, Country
 
