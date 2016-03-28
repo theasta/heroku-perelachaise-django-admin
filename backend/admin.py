@@ -34,14 +34,24 @@ class PersonalityAdmin(admin.ModelAdmin):
         InfoInline,
     ]
 
+
+# >>> from django.contrib.gis.geos import Point
+# >>> center = Point((2.39361410182, 48.860031862), srid=4326)
+# >>> center.transform(900913)
+# >>> center.y
+# 6251145.014684811
+# >>> center.z
+# >>> center.x
+# 266455.9029702013
+
 class SepultureAdmin(OSMGeoAdmin):
     readonly_fields = ('id', 'modified', 'longitude', 'latitude', 'long', 'lati')
     ordering = ('section', 'longitude', 'latitude')
     openlayers_url = 'https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js'
     inlines = [ PersonalityInline ]
     default_zoom = 18
-    default_lon = 2.39361410182
-    default_lat = 48.860031862
+    default_lon = 266456
+    default_lat = 6251145
     modifiable = True
 
 class CountryAdmin(admin.ModelAdmin):
