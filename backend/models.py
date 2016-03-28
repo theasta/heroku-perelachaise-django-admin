@@ -20,7 +20,7 @@ class Sepulture(models.Model):
     geog = models.GeometryField(geography=True) 
     # geog = models.TextField(blank=True, null=True)  # This field type is a guess.
     section = models.SmallIntegerField()
-    urn = models.CharField(max_length=8)
+    urn = models.CharField(max_length=8, blank=True)
     modified = models.DateTimeField(auto_now=True)
     def lati(self):
         return self.geog.y
@@ -38,7 +38,7 @@ class Sepulture(models.Model):
         lon = self.longitude
         if not lon:
             lon = '-'
-        return ("Section: %d (%s , %s) (%s, %s)" % (self.section, lon, lat, self.long(), self.lati()))
+        return ("Section: %d (%s , %s) (%s, %s)" % (self.section, lon, lat))
         
     class Meta:
         managed = True
