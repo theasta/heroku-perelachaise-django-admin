@@ -42,6 +42,7 @@ class SepultureAdmin(OSMGeoAdmin):
     default_zoom = 18
     default_lon = 2.3940475
     default_lat = 47.211029
+    modifiable = False
 
 class CountryAdmin(admin.ModelAdmin):
     list_display = ('id', 'country')
