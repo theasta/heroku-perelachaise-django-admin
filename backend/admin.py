@@ -35,14 +35,14 @@ class PersonalityAdmin(admin.ModelAdmin):
     ]
 
 class SepultureAdmin(OSMGeoAdmin):
-    readonly_fields = ('id', 'modified', 'latitude', 'longitude')
+    readonly_fields = ('id', 'modified')
     ordering = ('section', 'longitude', 'latitude')
     openlayers_url = 'https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js'
     inlines = [ PersonalityInline ]
     default_zoom = 18
     default_lon = 2.3940475
     default_lat = 47.211029
-    modifiable = False
+    modifiable = True
 
 class CountryAdmin(admin.ModelAdmin):
     list_display = ('id', 'country')
