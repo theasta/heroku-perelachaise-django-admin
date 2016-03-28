@@ -22,6 +22,11 @@ class Sepulture(models.Model):
     section = models.SmallIntegerField()
     urn = models.CharField(max_length=8)
     modified = models.DateTimeField(auto_now=True)
+    def lati(self):
+        return self.geog.y
+
+    def long(self):
+        return self.geog.x
 
     def __unicode__(self):
         lat = self.latitude

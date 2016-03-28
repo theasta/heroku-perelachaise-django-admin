@@ -35,7 +35,7 @@ class PersonalityAdmin(admin.ModelAdmin):
     ]
 
 class SepultureAdmin(OSMGeoAdmin):
-    readonly_fields = ('id', 'modified', 'longitude', 'latitude')
+    readonly_fields = ('id', 'modified', 'longitude', 'latitude', 'long', 'lati')
     ordering = ('section', 'longitude', 'latitude')
     openlayers_url = 'https://cdnjs.cloudflare.com/ajax/libs/openlayers/2.13.1/OpenLayers.js'
     inlines = [ PersonalityInline ]
