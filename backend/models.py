@@ -17,7 +17,7 @@ class Sepulture(models.Model):
     id = models.AutoField(primary_key=True)
     longitude = models.FloatField(blank=True, null=True)
     latitude = models.FloatField(blank=True, null=True)
-    geog = models.GeometryField(geography=True) 
+    geog = models.GeometryField(geography=True, blank=True, null=True) 
     # geog = models.TextField(blank=True, null=True)  # This field type is a guess.
     section = models.SmallIntegerField()
     urn = models.CharField(max_length=8, blank=True)
