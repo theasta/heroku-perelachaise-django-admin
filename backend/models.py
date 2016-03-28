@@ -15,37 +15,24 @@ class Country(models.Model):
         
 class Sepulture(models.Model):
     id = models.AutoField(primary_key=True)
-    longitude = models.FloatField(blank=True, null=True)
-    latitude = models.FloatField(blank=True, null=True)
     geog = models.GeometryField(geography=True, blank=True, null=True) 
-    # geog = models.TextField(blank=True, null=True)  # This field type is a guess.
     section = models.SmallIntegerField()
     urn = models.CharField(max_length=8, blank=True)
     modified = models.DateTimeField(auto_now=True)
-    def lati(self):
+    def latitude(self):
         point = self.geog
         if not point:
             return '-'            
         return str(self.geog.y)
 
-    def long(self):
+    def longitude(self):
         point = self.geog
         if not point:
             return '-'            
         return str(self.geog.x)
-        # return self.geog.x
 
     def __unicode__(self):
-        lat = self.latitude
-        if not lat:
-            lat = '-'
-        else:
-            lat = str(lat)
-        
-        lon = self.longitude
-        if not lon:
-            lon = '-'
-        return ("Section: %d (%s , %s) (%s , %s)" % (self.section, lon, lat, self.long(), self.lati()))
+        return ("Section: %d (%s , %s)" % (self.section, self.longitude(), self.latitude()))
         
     class Meta:
         managed = True
