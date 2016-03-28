@@ -23,10 +23,17 @@ class Sepulture(models.Model):
     urn = models.CharField(max_length=8, blank=True)
     modified = models.DateTimeField(auto_now=True)
     def lati(self):
-        return self.geog.y
+        point = self.geog
+        if not point:
+            return '-'            
+        return str(self.geog.y)
 
     def long(self):
-        return self.geog.x
+        point = self.geog
+        if not point:
+            return '-'            
+        return str(self.geog.x)
+        # return self.geog.x
 
     def __unicode__(self):
         lat = self.latitude
@@ -38,7 +45,7 @@ class Sepulture(models.Model):
         lon = self.longitude
         if not lon:
             lon = '-'
-        return ("Section: %d (%s , %s) (%s, %s)" % (self.section, lon, lat))
+        return ("Section: %d (%s , %s)" % (self.section, lon, lat))
         
     class Meta:
         managed = True
